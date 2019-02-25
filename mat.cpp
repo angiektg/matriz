@@ -23,7 +23,7 @@ class Matrix {
     };
 
     void show(){                                    //mostrar la matriz
-        std::cout << "\n";
+        std::cout << " \n";
         for(int i=0; i<ENE; i++){
             std::cout << "\n";
             for(int j=0;j<ENE;j++){

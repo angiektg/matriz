@@ -34,7 +34,7 @@ for hilos in range (1,nhilos+1):
     plt.plot(x,tiempos,linestyle='-',marker='+', markeredgecolor='b', color='r')
     for a,b in zip(x, tiempos):
         plt.text(a, b, str(b)[0:5])
-    plt.xlabel("Numero de hilos")
+    plt.xlabel("Numero de hilos ")
     plt.ylabel("Tiempo")
     plt.subplot(122, title='Speedup vs Numero de Hilos')
     plt.plot(x,  (np.asarray(tiempos[0]))/np.asarray(tiempos)*x ,linestyle='-',marker='+', markeredgecolor='b', color='r')
