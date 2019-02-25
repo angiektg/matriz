@@ -4,7 +4,7 @@
 
 int NTHREADS;
 
-const long ENE = 2048;                                  //numero de filas y columnas en la matriz
+const long ENE = 1024;                                  //numero de filas y columnas en la matriz
 
 
 
