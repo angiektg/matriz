@@ -1,10 +1,11 @@
 #include <iostream>
 #include <thread>
+#include <stdio.h>
 #include <stdlib.h>
 
 int NTHREADS;
 
-const long ENE = 1024;                                  //numero de filas y columnas en la matriz
+const long ENE = 2048;                                  //numero de filas y columnas en la matriz
 
 
 
@@ -39,6 +40,7 @@ int inf = ENE/NTHREADS*rango;
 int sup = inf+ENE/NTHREADS;
 
     for(int i=inf;i<sup;i++){
+		//printf("%i\n", i);
         for(int j=0;j<ENE;j++){
                 for(int k=0; k<ENE; k++){
                     acc = acc + (A.mt[i][k]*B.mt[k][j]);
