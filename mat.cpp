@@ -4,7 +4,7 @@
 
 int NTHREADS;
 
-const unsigned long ENE = 256;                                  //numero de filas y columnas en la matriz
+const long ENE = 2048;                                  //numero de filas y columnas en la matriz
 
 
 
@@ -33,7 +33,7 @@ class Matrix {
     };
 };
 
-void producto(Matrix A, Matrix B, Matrix &C, int rango){    //multiplicacion de matriz en filas determinadas por rango, ENE y NTHREADS, actualiza una matriz C
+void producto(Matrix &A, Matrix &B, Matrix &C, int rango){    //multiplicacion de matriz en filas determinadas por rango, ENE y NTHREADS, actualiza una matriz C
 double acc = 0;
 int inf = ENE/NTHREADS*rango;
 int sup = inf+ENE/NTHREADS;
@@ -54,12 +54,12 @@ int main (int argc, char *argv[]){
     NTHREADS = atoi(argv[1]);
     std::cout << "Numero de hilos: " << NTHREADS << "\n";
     std::thread t[NTHREADS];
-    Matrix a(true);
-    Matrix b(true);
-    Matrix r(false);
+    static Matrix a(true);
+    static Matrix b(true);
+    static Matrix r(false);
     //a.show(); 
     //b.show(); 
-    for(int i=0;i<NTHREADS;i++) t[i] = std::thread (producto, a, b, std::ref(r), i);     
+    for(int i=0;i<NTHREADS;i++) t[i] = std::thread (producto, std::ref(a), std::ref(b), std::ref(r), i);     
     for(int i=0;i<NTHREADS;i++) t[i].join();
     //r.show();
    return 0;
